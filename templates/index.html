@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}
+Thermos -- Welcome
+{% endblock %}
+
+{% block content %}
+    <article>
+        <header>
+            <h1>Welcome</h1>
+            <p>Thermos is a simple social bookmarking site. Or actually, it is a demo for the Pluralsight course titled Flask Fundamentals.</p>
+        </header>
+        <section>
+            <h2>Recently added</h2>
+            {% if new_bookmarks %}
+                <ul>
+                {% for bm in new_bookmarks %}
+                    <li>
+                        {{ bm.user }} added <a href="{{ bm.url }}">{{ bm.url }}</a>
+                    </li>
+                {% endfor %}
+                </ul>
+            {% else %}
+                No bookmarks yet.
+            {% endif %}
+        </section>
+        <section>
+            <h2>article section h2</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem rerum a maxime ipsa, tempore perferendis animi tempora repudiandae ducimus minus, soluta possimus ab facilis corrupti voluptate vel officia temporibus, atque.</p>
+        </section>
+    </article>
+{% endblock %}
