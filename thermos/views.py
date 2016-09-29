@@ -6,7 +6,7 @@ from thermos.models import User, Bookmark
 
 #Fake login
 def logged_in_user():
-	return models.User.query.filter_by(username='reindert').first()
+	return User.query.filter_by(username='reindert').first()
 
 @app.route('/')
 @app.route('/index')
@@ -26,6 +26,13 @@ def add():
 		flash("Stored: '{}'".format(description))
 		return redirect(url_for('index'))
 	return render_template('add.html', form=form)
+
+
+
+@app.route('/user/<username>') #<parameter for the function>
+def user(username):
+	user = User.query.filter_by(username=username).first_or_404()
+	return render_template('user.html', user=user)
 
 
 @app.errorhandler(404)
