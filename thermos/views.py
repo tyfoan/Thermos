@@ -1,8 +1,10 @@
 from flask import render_template, flash, redirect, url_for, abort
 
-from thermos import app, db
+from . import app, db
+
 from .forms import BookmarkForm
 from .models import User, Bookmark
+
 
 #Fake login
 def logged_in_user():
