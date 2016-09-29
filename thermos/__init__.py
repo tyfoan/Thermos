@@ -12,5 +12,5 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'th
 app.config['DEBUG'] = True
 db = SQLAlchemy(app)
 
-import thermos.models
-import thermos.views
+from . import models
+from . import views

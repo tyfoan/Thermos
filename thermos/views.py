@@ -1,12 +1,14 @@
 from flask import render_template, flash, redirect, url_for, abort
 
-from thermos import app, db
-from thermos.forms import BookmarkForm
-from thermos.models import User, Bookmark
+from . import app, db
+
+from .forms import BookmarkForm
+from .models import User, Bookmark
+
 
 #Fake login
 def logged_in_user():
-	return models.User.query.filter_by(username='reindert').first()
+	return User.query.filter_by(username='reindert').first()
 
 @app.route('/')
 @app.route('/index')
