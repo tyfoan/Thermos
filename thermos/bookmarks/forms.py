@@ -1,7 +1,7 @@
 from flask_wtf import Form
-from wtforms.fields import StringField, PasswordField, BooleanField, SubmitField
+from wtforms.fields import StringField
 from flask.ext.wtf.html5 import URLField
-from wtforms.validators import DataRequired, url, ValidationError, Length, Email, Regexp, EqualTo
+from wtforms.validators import DataRequired, url, Regexp
 
 from thermos.models import User
 
@@ -30,6 +30,4 @@ class BookmarkForm(Form):
 		self.tags.data = ','.join(tagset)
 
 		return True
-
-
 
