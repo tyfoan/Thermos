@@ -9,7 +9,7 @@ Thermos -- Bookmarks for user {{ user.username }}
 		<header>
 			<h1>Bookmarks for {{ user.username }}</h1>
 
-			<ul>
+			<!-- <ul>
 				{% for bm in user.bookmarks %}
 				<li>
 					<a href="{{ bm.url }}">{{ bm.description }}</a>
@@ -18,7 +18,14 @@ Thermos -- Bookmarks for user {{ user.username }}
 				{% else %}
 					<li>This user has not added any bookmarks yet.</li>
 				{% endfor %}
-			</ul>
+			</ul> -->
+			{% if user.bookmarks.count() > 0 %}
+				{% with bookmarks=user.bookmarks %}
+					{% include 'bookmark_list.html' %}
+				{% endwith %}
+			{% else %}
+				This user has not added any bookmarks yet.
+			{% endif %}
 		</header>
 		
 	</article>

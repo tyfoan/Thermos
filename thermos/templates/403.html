@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Server error :(</title>
+        <title>Forbidden</title>
         <style>
             ::-moz-selection {
                 background: #b3d4fc;
@@ -141,13 +141,8 @@
     </head>
     <body>
         <div class="container">
-            <h1>Something went wrong <span>:(</span></h1>
-            <p>Sorry, but something went wrong on the server.</p>
-            <p>Please try to reload the page. If that doesn't work,
-                try again later.</p>
-            <p>If the problem persists,  <a href="mailto:thermos@example.com">
-                mail the webmaster</a>.</p>
+            <h1>Not allowed</h1>
+            <p>You don't have permission to view this page. <a href="{{ url_for("index") }}">Click here to return to the home page</a>.</p>
         </div>
     </body>
-
 </html>
